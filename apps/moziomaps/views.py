@@ -9,4 +9,4 @@ def RegisterView(request):
         form = CompanyForm(data)
         if form.is_valid():
             form.save()
-    return render_to_response('register.html')
+    return render(request, 'register.html')
