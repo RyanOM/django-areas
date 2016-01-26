@@ -12,6 +12,10 @@ def RegisterView(request):
             redirect('/')
             return
 
+        # Show errors
+        errors = form.errors
+        return render(request, 'register.html', {"errors": errors})
+
     return render(request, 'register.html')
 
 def create_service_area(name, json_coordinates):
