@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls, name='login'),
-    url(r'^$', include('apps.moziomaps.urls'))
+    url(r'^', include('apps.moziomaps.urls'))
 ]
