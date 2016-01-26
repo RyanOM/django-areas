@@ -131,7 +131,10 @@ MapEditor.prototype.generateForm = function() {
 MapEditor.prototype.pathsToCoordinates = function(paths) {
     return paths.getArray().map(function(arr) {
         return arr.getArray().map(function(point) {
-            return point.toString();
+            return {
+                lat: point.lat(),
+                lng: point.lng(),
+            };
         });
     });
 };
