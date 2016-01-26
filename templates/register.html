@@ -14,8 +14,11 @@
         <h5>Delete Service Area</h5>
         <input type="button" class="btn btn-danger" id="delete-polygon" value="Delete Area" onClick="editor.clear();">
         <hr>
-        <form>
-            <input id="coordinate-input" value="">
+        <form method="post">
+            {% csrf_token %}
+            <input id="company-input" value="" placeholder="Company's Name" name="name" required>
+            <input id="coordinate-input" value="" name="coordinates">
+            <input class="btn btn-success" value="Save Area" type="submit">
         </form>
         <hr>
         <h5>Current Service Area coordinates</h5>
