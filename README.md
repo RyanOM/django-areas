@@ -1,5 +1,5 @@
 # django-areas
-django-areas is a web application based on the GMaps API and backend powered by Django.
+django-areas is a web application based on the GMaps API and backend powered by Django and MYSQL.
 
 ---
 
