@@ -81,15 +81,36 @@ MapEditor.prototype.autolocate = function() {
     }
 };
 
+// Return a copy of our points
+MapEditor.prototype.getPoints = function() {
+    return this.points.slice();
+};
+
 MapEditor.prototype.finish = function(points) {
     this.active = false;
     this.points = points;
-    console.log('Points = ', points);
-    this.syncDrawingManager();
-}
+
+    // Sync
+    this.sync();
+};
 
 MapEditor.prototype.clear = function() {
     this.active = true;
+
+    // Sync
+    this.sync();
+};
+
+MapEditor.prototype._onChange = function() {
+    if(this.onChange) {
+        this.onChange();
+    } else {
+        console.log('MapEditor changed !!! Please provide an onChange method');
+    }
+};
+
+MapEditor.prototype.sync = function() {
+    this._onChange();
     this.syncDrawingManager();
 };
 
@@ -100,7 +121,11 @@ MapEditor.prototype.syncDrawingManager = function() {
     }
     // Remove/add map to drawingManager based on active state
     this.drawingManager.setMap(map);
-}
+};
+
+MapEditor.prototype.generateForm = function() {
+    this.formElement.innerHtml = html;
+};
 
 // Transforms Google's MVCArrays into JS arrays
 MapEditor.prototype.pathsToCoordinates = function(paths) {
@@ -109,11 +134,11 @@ MapEditor.prototype.pathsToCoordinates = function(paths) {
             return point.toString();
         });
     });
-}
+};
 
 MapEditor.prototype.locationError = function(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
-}
+};
