@@ -12,15 +12,12 @@
     </div>
     <div class="col-md-3">
         <h5>Delete Service Area</h5>
-        <input type="button" class="btn btn-danger" id="delete-polygon" value="Delete Area">
+        <input type="button" class="btn btn-danger" id="delete-polygon" value="Delete Area" onClick="editor.clear();">
         <hr>
         <h5>Current Service Area coordinates</h5>
         <div class="coordinates"></div>
     </div>
 </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLDSHqB5ImCeg9Hoz-neaR5USH7pjn9fY&signed_in=true&libraries=drawing&callback=initMap"
-        async defer>
-    </script>
     <script src="{% static 'js/mapeditor.js' %}"></script>
     <script type="text/javascript">
         var editor;
@@ -31,6 +28,9 @@
             // Autolocate
             editor.autolocate();
         }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLDSHqB5ImCeg9Hoz-neaR5USH7pjn9fY&signed_in=true&libraries=drawing&callback=initMap"
+        >
     </script>
 
 {% endblock %}
