@@ -30,7 +30,9 @@ def LookupApi(request):
     # Find matches in database
 
     # Return matches
-    return JsonResponse(["Microsoft"])
+    return JsonResponse({
+        "matches": ["Microsoft"]
+    })
 
 def create_service_area(name, json_coordinates):
     # Parse coordinates
