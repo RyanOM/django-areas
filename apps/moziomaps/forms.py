@@ -3,7 +3,7 @@ from models import Company, ServiceArea
 
 
 
-class CompanyForm(forms.ModelForm):
-    class Meta:
-        model = Company
-        fields = '__all__'
+class CompanyForm(forms.Form):
+    name = forms.CharField(min_length=1)
+    json_coordinates = forms.CharField(min_length=2)
+
