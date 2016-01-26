@@ -35,7 +35,7 @@ MapEditor.prototype.initDrawingManager = function() {
             google.maps.drawing.OverlayType.POLYGON,
           ]
         },
-        PolygonOptions: {
+        polygonOptions: {
             fillColor: '#ffff00',
             fillOpacity: 1,
             strokeWeight: 5,
