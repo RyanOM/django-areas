@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'djareas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.mysql',
         'NAME': 'djareas_db',
