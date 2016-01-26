@@ -16,7 +16,7 @@ function MapEditor(element) {
 
 MapEditor.prototype.initMap = function() {
     return new google.maps.Map(this.element, {
-        center: {lat: 37.773793, lng: -122.422847},
+        center: {lat: 37.418628, lng: -122.079166},
         zoom: 14,
         streetViewControl: false,
         mapTypeControl: false
@@ -36,8 +36,8 @@ MapEditor.prototype.initDrawingManager = function() {
           ]
         },
         polygonOptions: {
-            fillColor: '#ffff00',
-            fillOpacity: 1,
+            fillColor: '#ff0000',
+            fillOpacity: 0.2,
             strokeWeight: 5,
             editable: true,
             dragable: true,
