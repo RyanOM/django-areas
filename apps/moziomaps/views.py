@@ -1,4 +1,6 @@
 from django.shortcuts import render, render_to_response, redirect
+from django.http import JsonResponse
+
 from forms import CompanyForm
 from models import Company, ServiceArea
 
@@ -17,6 +19,18 @@ def RegisterView(request):
         return render(request, 'register.html', {"errors": errors})
 
     return render(request, 'register.html')
+
+def LookupView(request):
+    return render(request, 'lookup.html')
+
+def LookupApi(request):
+    # Extract coordinates from request
+    lat, lng = "32", "33"
+
+    # Find matches in database
+
+    # Return matches
+    return JsonResponse(["Microsoft"])
 
 def create_service_area(name, json_coordinates):
     # Parse coordinates
