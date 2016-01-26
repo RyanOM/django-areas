@@ -15,18 +15,42 @@
         <input type="button" class="btn btn-danger" id="delete-polygon" value="Delete Area" onClick="editor.clear();">
         <hr>
         <h5>Current Service Area coordinates</h5>
-        <div class="coordinates"></div>
+        <div id="coordinate-list"></div>
     </div>
 </div>
     <script src="{% static 'js/mapeditor.js' %}"></script>
     <script type="text/javascript">
         var editor;
+        var $display = document.getElementById("coordinate-list");
+
         function initMap() {
             // Init editor
             editor = new MapEditor(document.querySelector("#map"));
 
+            // Called when something changes
+            editor.onChange = function() {
+                var points = editor.getPoints();
+                console.log('points =', points);
+                updateDisplay(points);
+            };
+
             // Autolocate
             editor.autolocate();
+        }
+
+        function updateDisplay(points) {
+            $display.innerHTML = genDisplayHtml(points);
+        }
+
+        function genDisplayHtml(points) {
+            return [
+                "<ul>",
+                // Generate each point
+                points.map(function(point) {
+                    return "<li>" + point + "</li>";
+                }).join('\n'),
+                "</ul>",
+            ].join('\n');
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLDSHqB5ImCeg9Hoz-neaR5USH7pjn9fY&signed_in=true&libraries=drawing&callback=initMap"
