@@ -54,7 +54,7 @@ user.save()
 ```
 
 
-### Run Djareas Locally
+### Run Application Locally
 
 ```
 python manage.py runserver
